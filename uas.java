@@ -68,6 +68,7 @@
     public class uas{
         public static void main(String[] args) {
             Hero ryoma = new Hero("Ryoma", 1000, 700, 500);
+            Hero nakroth = new Hero("Nakroth", 200, 1000, 800);
             Hero maloch = new Hero("Maloch", 2000, 400, 1000);
 
             System.out.println(ryoma);
