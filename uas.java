@@ -1,77 +1,93 @@
-    class Hero {
-        String name;
-        int hp;
-        int atk;
-        int def;
+class Hero {
+    String name;
+    int hp;
+    int atk;
+    int def;
 
-        public Hero(String name, int hp, int atk, int def) {
-            this.name = name;
-            this.hp = hp;
-            this.atk = atk;
-            this.def = def;
-        }
-
-        void attack(Minion minion) {
-            int damage = Math.max(0, this.atk - minion.def);
-            minion.defend(damage);
-        }
-
-        void attack(Tower tower) {
-            int damage = Math.max(0, this.atk - tower.def);
-            tower.defend(damage);
-        }
+    public Hero(String name, int hp, int atk, int def) {
+        this.name = name;
+        this.hp = hp;
+        this.atk = atk;
+        this.def = def;
     }
 
-
-    abstract class Enemy {
-        int hp;
-        int atk;
-        int def;
-        boolean is_aggressive;
-
-        public Enemy(int hp, int atk, int def, boolean is_aggressive) {
-            this.hp = hp;
-            this.atk = atk;
-            this.def = def;
-            this.is_aggressive = is_aggressive;
-        }
+    void attack(Minion minion) {
+        int damage = Math.max(0, this.atk - this.def);
+        minion.defend(damage);
     }
 
-    class Minion extends Enemy {
-        public Minion(int hp, int atk, int def) {
-            super(hp, atk, def, false);
-        }
+    void attack(Zombie zombie) {
+        int damage = Math.max(0, this.atk - this.def);
+        zombie.defend(damage);
+    }
 
-        void defend(int damage) {
-            if (this.hp < 10)
-                damage *= 1.15;
-            if (this.hp > 25)
-                damage *= 0.8;
+    void display() {
+        System.out.println("\nName : " + this.name);
+        System.out.println("Health : " + this.hp + " hp");
+        System.out.println("Attack : " + this.atk);
+        System.out.println("Defend : " + this.def);
+    }
+}
+
+// abstraction
+abstract class Enemy {
+    int hp;
+    int atk;
+    int def;
+    boolean is_aggresive;
+
+    public Enemy(int hp, int atk, int def, boolean is_aggresive) {
+        this.hp = hp;
+        this.atk = atk;
+        this.def = def;
+        this.is_aggresive = is_aggresive;
+    }
+}
+
+// inheritance
+class Minion extends Enemy {
+    public Minion(int hp, int atk, int def) {
+        super(hp, atk, def, false);
+    }
+
+    void defend(int damage) {
+        if (this.hp < 100) {
+            damage *= 1.15;
+        } else if (this.hp > 250) {
+            damage *= 0.8;
             this.hp -= damage;
         }
     }
 
-    class Tower extends Enemy {
-        public Tower(int hp, int atk, int def) {
-            super(hp, atk, def, true);
-        }
+    void display() {
+        System.out.println("\nHealth : " + this.hp + " hp");
+        System.out.println("Attack : " + this.atk);
+        System.out.println("Defend : " + this.def);
+    }
+}
 
-        void defend(int damage) {
-            if (this.hp < 10)
-                damage *= 1.15;
-            if (this.hp > 25)
-                damage *= 0.8;
+// polymorphism
+class Zombie extends Enemy {
+    public Zombie(int hp, int atk, int def) {
+        super(hp, atk, def, false);
+    }
+
+    void defend(int damage) {
+        if (this.hp > 5) {
+            damage *= 0.7;
             this.hp -= damage;
         }
     }
+}
 
-    public class uas{
-        public static void main(String[] args) {
-            Hero ryoma = new Hero("Ryoma", 1000, 700, 500);
-            Hero nakroth = new Hero("Nakroth", 200, 1000, 800);
-            Hero maloch = new Hero("Maloch", 2000, 400, 1000);
+class uas {
+    public static void main(String[] args) {
+        Hero kamenRider = new Hero("Kamenrider", 100, 50, 25);
+        Minion minion = new Minion(50, 10, 15);
 
-            System.out.println(ryoma);
-            System.out.println(maloch);
-        }
+        kamenRider.display();
+        kamenRider.attack(minion);
+        minion.display();
+        kamenRider.display();
     }
+}
