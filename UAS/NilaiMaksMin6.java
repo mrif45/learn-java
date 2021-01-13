@@ -1,3 +1,5 @@
+package UAS;
+
 import java.util.*;
 
 public class NilaiMaksMin6{

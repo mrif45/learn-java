@@ -1,3 +1,5 @@
+package PenghitungKata;
+
 import java.io.*;
 
 public class PenghitungKata {

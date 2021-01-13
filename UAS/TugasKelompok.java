@@ -1,3 +1,5 @@
+package UAS;
+
 import javax.swing.*;
 
 class TugasKelompok{

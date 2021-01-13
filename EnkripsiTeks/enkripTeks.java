@@ -1,3 +1,5 @@
+package EnkripsiTeks;
+
 import java.util.Scanner;
 
 public class enkripTeks{

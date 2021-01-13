@@ -1,3 +1,5 @@
+package BangunDatar;
+
 import java.util.Scanner;
 
 //class bangunanya untuk membuat method-method yang akan digunakan

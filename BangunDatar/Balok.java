@@ -1,3 +1,5 @@
+package BangunDatar;
+
 import java.util.Scanner;
 
 class Balok{

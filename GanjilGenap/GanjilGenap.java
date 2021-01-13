@@ -1,6 +1,8 @@
+package GanjilGenap;
+
 import java.util.Scanner;
 
-public class GanjilGenap2{
+public class GanjilGenap{
     static String apakahGanjil(int ParamBilangan){
         String Hasil;
         if(ParamBilangan %2 !=0){

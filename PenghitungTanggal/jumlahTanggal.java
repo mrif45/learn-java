@@ -1,3 +1,5 @@
+package PenghitungTanggal;
+
 import java.util.Scanner;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;

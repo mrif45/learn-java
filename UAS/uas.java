@@ -1,3 +1,5 @@
+package UAS;
+
 class Hero {
     String name;
     int hp;
